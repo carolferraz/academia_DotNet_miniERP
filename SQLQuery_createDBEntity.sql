@@ -34,10 +34,13 @@ create table notas
 create table pedido
 (
     id integer primary key identity,
-    fk_produto integer,
+	fk_cliente integer,
+	fk_produto integer,
     quantidade integer,
 	totalItem decimal,
-    foreign key (fk_produto) references produtos(id)
+	emissao datetime,
+    foreign key (fk_produto) references produtos(id),
+	foreign key (fk_cliente) references clientes(id),
 );
 
 create login minierp with password='123456';
@@ -65,6 +68,7 @@ select * from clientes;
 select * from fornecedores;
 select * from produtos;
 select * from pedido;
+select * from notas;
 
 drop table pedido;
 drop table notas;
